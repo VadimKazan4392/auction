@@ -8,3 +8,15 @@ services:
         - "8080:80"
       volumes:
         - ./frontend:/app
+
+    api:
+      build:
+        context: api/docker/development/nginx
+
+      volumes:
+        - ./api:/app
+
+    api-php-fpm:
+      build:
+        context: api/docker/development/php-fpm
+        
